@@ -20,7 +20,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({ siteTitle }) => (
       </Link>
     </div>
     <div className="right-items">
-      <div>顾乡</div>
+      {/* <div>顾乡</div> */}
     </div>
   </nav>
 )

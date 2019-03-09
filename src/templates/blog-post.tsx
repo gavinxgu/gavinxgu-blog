@@ -2,6 +2,7 @@ import { graphql, Link } from 'gatsby'
 import * as React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import style from './blog-post.module.scss'
 
 interface BlogPostTemplateProps {
   data: {
@@ -34,46 +35,51 @@ class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
     return (
       <Layout>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            display: 'block',
-            marginBottom: '1rem',
-            marginTop: '-rem',
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: '14px',
-          }}
-        />
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+        <div className={style.blogPost}>
+          <h1>{post.frontmatter.title}</h1>
+          <p
+            style={{
+              display: 'block',
+              marginBottom: '1rem',
+              marginTop: '-rem',
+            }}
+          >
+            {post.frontmatter.date}
+          </p>
+          <div
+            className={style.guxMarkdown}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+          <hr
+            style={{
+              marginBottom: '14px',
+            }}
+          />
+          <ul
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              listStyle: 'none',
+              padding: 0,
+            }}
+          >
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </ul>
+        </div>
       </Layout>
     )
   }
@@ -95,7 +101,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY, MM月DD日, HH:mm:ss")
       }
     }
   }
