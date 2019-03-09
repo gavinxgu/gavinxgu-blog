@@ -1,6 +1,9 @@
 ---
-title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
+title: 统一产品编排
+tags: ['学术']
+date: '2019-03-09'
+cover:
+published: true
 ---
 
 Wow! I love blogging so much already.

@@ -1,0 +1,28 @@
+html {
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main {
+  margin: 4.3rem auto;
+  padding: 0px 1.0875rem 1.45rem;
+  height: calc(100vh - 4.3rem);
+  overflow: auto;
+  .posts {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+}
+
+* {
+  font-weight: 400;
+}

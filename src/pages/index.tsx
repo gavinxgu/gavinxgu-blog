@@ -1,21 +1,11 @@
 import { graphql, Link } from 'gatsby'
+import Img, { FluidObject } from 'gatsby-image'
 import * as React from 'react'
 import Image from '../components/image'
 import Layout from '../components/layout'
+import PostItem, { PostNode } from '../components/postItem'
 import SEO from '../components/seo'
-
-interface PostNode {
-  node: {
-    excerpt: string
-    frontmatter: {
-      date: string
-      title: string
-    }
-    fields: {
-      slug: string
-    }
-  }
-}
+import './index.scss'
 
 interface IndexPageProps {
   data: {
@@ -26,6 +16,7 @@ interface IndexPageProps {
     }
     allMarkdownRemark: {
       edges: PostNode[]
+      group: Array<{ fieldValue: string; totalCount: number }>
     }
   }
 }
@@ -38,30 +29,10 @@ class IndexPage extends React.Component<IndexPageProps, {}> {
     return (
       <Layout>
         <SEO
-          title="All posts"
+          title="所有博文"
           keywords={['blog', 'gatsby', 'javascript', 'react']}
         />
-        <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-          <Image />
-        </div>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: '0.25rem',
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
+        {posts.map(post => PostItem(post))}
       </Layout>
     )
   }
@@ -76,7 +47,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { ne: false } } }
+    ) {
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
       edges {
         node {
           excerpt
@@ -84,8 +62,18 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY, MM月DD日")
             title
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 786) {
+                  src
+                  srcSet
+                  sizes
+                  aspectRatio
+                }
+              }
+            }
           }
         }
       }

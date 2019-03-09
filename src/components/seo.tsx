@@ -10,7 +10,7 @@ interface SEOProps {
   title: string
 }
 
-const SEO: React.SFC<SEOProps> = ({
+const SEO: React.FunctionComponent<SEOProps> = ({
   description,
   lang,
   meta,
@@ -63,14 +63,14 @@ const SEO: React.SFC<SEOProps> = ({
             },
           ]
             .concat(
-              keywords.length > 0
+              keywords && keywords.length > 0
                 ? {
                     content: keywords.join(', '),
                     name: 'keywords',
                   }
                 : []
             )
-            .concat(meta)}
+            .concat(meta ? meta : [])}
         />
       )
     }}
@@ -85,6 +85,7 @@ SEO.defaultProps = {
 
 export default SEO
 
+// 标签模板字符串
 const detailsQuery = graphql`
   query DefaultSEOQuery {
     site {
