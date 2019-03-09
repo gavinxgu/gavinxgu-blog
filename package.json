@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-typescript-starter-blog",
-  "description": "Gatsby Typescript Starter Blog",
+  "name": "gavinxgu-blog",
+  "description": "Gavinxgu Gatsby Blog",
   "version": "1.0.0",
-  "author": "Frank Ahn <frankahn9@gmail.com>",
+  "author": "gavinxgu <gavinxgu@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
