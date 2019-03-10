@@ -44,7 +44,7 @@ class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
     const disqusConfig = {
       identifier: post.frontmatter.id,
       title: post.frontmatter.title,
-      url: `//${this.props.data.site.siteMetadata.host}${post.fields.slug}`,
+      url: `http://${this.props.data.site.siteMetadata.host}${post.fields.slug}`,
     }
 
     return (
