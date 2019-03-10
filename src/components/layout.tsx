@@ -11,13 +11,17 @@ const Layout: React.FunctionComponent = ({ children }) => (
         site {
           siteMetadata {
             title
+            latestUpate
           }
         }
       }
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          latestUpate={data.site.siteMetadata.latestUpate}
+        />
         <main className="main">
           <div className="posts">{children}</div>
         </main>

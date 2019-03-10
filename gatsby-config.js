@@ -3,6 +3,7 @@ module.exports = {
     title: '苏染的博客',
     description: `gavinxgu's personal blog`,
     author: '@gavinxgu',
+    latestUpate: new Date(),
   },
   plugins: [
     {
