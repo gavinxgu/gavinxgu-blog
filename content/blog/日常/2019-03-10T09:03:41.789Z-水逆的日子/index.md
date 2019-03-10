@@ -1,6 +1,6 @@
 ---
 title: 水逆的日子
-tags: ['日常']
+tags: ['日常', '倒霉']
 date: 2019-03-10T09:03:41.789Z
 cover:
 published: true
