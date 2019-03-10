@@ -9,6 +9,7 @@ export interface PostNode {
     frontmatter: {
       date: string
       title: string
+      tags: string[]
       cover: {
         childImageSharp: {
           fluid: FluidObject
@@ -25,26 +26,58 @@ export default (post: PostNode) => {
   const { node } = post
   const title = node.frontmatter.title || node.fields.slug
   return (
-    <div className={`${style.postItem} shadow`} key={node.fields.slug}>
-      <div className={style.postItemOverlay} />
-      <h1
-        style={{
-          marginBottom: '0.25rem',
-          marginTop: '0.25rem',
-        }}
-      >
-        <Link to={node.fields.slug}>{title}</Link>
-      </h1>
-      {node.frontmatter.cover && (
-        <Img
-          className={style.postItemCover}
-          // 必须写在这里才能absolute
-          style={{ position: 'absolute' }}
-          fluid={node.frontmatter.cover.childImageSharp.fluid}
+    <div
+      className={`${style.postItem} shadow`}
+      key={node.fields.slug}
+      onClick={() => {
+        location.href = node.fields.slug
+      }}
+    >
+      <div className={style.postItemInfo}>
+        <small>
+          {node.frontmatter.date} ·
+          {node.frontmatter.tags.map(tag => (
+            <Link
+              to={`/tags/${tag}`}
+              onClick={e => {
+                e.stopPropagation()
+              }}
+            >
+              {' '}
+              {tag}
+            </Link>
+          ))}
+        </small>
+        <h2
+          style={{
+            marginBottom: '0.25rem',
+            marginTop: '0.25rem',
+          }}
+        >
+          <Link
+            to={node.fields.slug}
+            onClick={e => {
+              e.stopPropagation()
+            }}
+          >
+            {title}
+          </Link>
+        </h2>
+        <small
+          className={style.postItemExcerpt}
+          dangerouslySetInnerHTML={{ __html: node.excerpt }}
         />
-      )}
-      <small>{node.frontmatter.date}</small>
-      <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+      </div>
+      <div>
+        {node.frontmatter.cover && (
+          <Img
+            className={style.postItemCover}
+            // 必须写在这里才能absolute
+            // style={{ position: 'absolute' }}
+            fluid={node.frontmatter.cover.childImageSharp.fluid}
+          />
+        )}
+      </div>
     </div>
   )
 }

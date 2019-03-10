@@ -56,8 +56,9 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "YYYY, MM月DD日")
+            date(formatString: "YYYY年MM月DD日")
             title
+            tags
             cover {
               childImageSharp {
                 fluid(maxWidth: 786) {

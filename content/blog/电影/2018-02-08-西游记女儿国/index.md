@@ -1,6 +1,6 @@
 ---
 title: 西游记女儿国
-tags: ['电影']
+tags: ['电影', '影评']
 date: '2018-02-08T13:55:00.000Z'
 cover: p2511375626.webp
 published: true
