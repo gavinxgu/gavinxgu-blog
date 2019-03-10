@@ -11,12 +11,16 @@ interface BlogPostTemplateProps {
     site: {
       siteMetadata: {
         title: string
+        host: string
       }
     }
     markdownRemark: {
       id: string
       excerpt: string
       html: string
+      fields: {
+        slug: string
+      }
       frontmatter: {
         id: string
         title: string
@@ -40,7 +44,7 @@ class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
     const disqusConfig = {
       identifier: post.frontmatter.id,
       title: post.frontmatter.title,
-      url: location.href,
+      url: `//${this.props.data.site.siteMetadata.host}${post.fields.slug}`,
     }
 
     return (
@@ -113,13 +117,16 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
+        host
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         id
         title
