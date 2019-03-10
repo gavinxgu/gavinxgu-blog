@@ -1,4 +1,5 @@
 import { graphql, Link } from 'gatsby'
+import moment from 'moment'
 import * as React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -44,7 +45,7 @@ class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
               marginTop: '-rem',
             }}
           >
-            {post.frontmatter.date}
+            {moment(post.frontmatter.date).format('YYYY年MM月DD日 HH:mm:ss')}
           </p>
           <div
             className={style.guxMarkdown}
@@ -101,7 +102,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "YYYY年MM月DD日, HH:mm:ss")
+        date
       }
     }
   }

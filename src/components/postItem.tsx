@@ -1,5 +1,6 @@
 import { Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
+import moment from 'moment'
 import * as React from 'react'
 import style from './postItem.module.scss'
 
@@ -34,7 +35,7 @@ export default ({ post }: { post: PostNode }) => {
     >
       <div className={style.postItemInfo}>
         <small>
-          {node.frontmatter.date} ·
+          {moment(node.frontmatter.date).format('YYYY年MM月DD日')} ·
           {node.frontmatter.tags.map(tag => (
             <Link
               to={`/tags/${tag}`}

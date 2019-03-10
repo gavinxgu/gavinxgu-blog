@@ -1,0 +1,20 @@
+{
+  "name": "@gavinxgu/cli-blog",
+  "version": "1.0.0",
+  "description": "Command line interface for gavinxgu blog",
+  "bin": {
+    "gblog": "bin/gblog.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "gavinxgu <gavinxgu@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "mkdirp": "^0.5.1",
+    "mustache": "^3.0.1"
+  }
+}

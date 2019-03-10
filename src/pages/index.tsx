@@ -59,12 +59,12 @@ export const pageQuery = graphql`
       }
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 100)
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "YYYY年MM月DD日")
+            date
             tags
             title
             cover {
