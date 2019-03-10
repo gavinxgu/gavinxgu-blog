@@ -22,13 +22,12 @@ export interface PostNode {
   }
 }
 
-export default (post: PostNode) => {
+export default ({ post }: { post: PostNode }) => {
   const { node } = post
   const title = node.frontmatter.title || node.fields.slug
   return (
     <div
       className={`${style.postItem} shadow`}
-      key={node.fields.slug}
       onClick={() => {
         location.href = node.fields.slug
       }}
@@ -42,6 +41,7 @@ export default (post: PostNode) => {
               onClick={e => {
                 e.stopPropagation()
               }}
+              key={tag}
             >
               {' '}
               {tag}

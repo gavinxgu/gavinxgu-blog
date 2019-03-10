@@ -31,7 +31,9 @@ const Tags: React.FunctionComponent<TagsTemplateProps> = ({
       <SEO title={tag} description={tag} />
       <div>
         <h2>{tagHeader}</h2>
-        {edges.map(post => PostItem(post))}
+        {edges.map(post => (
+          <PostItem post={post} key={post.node.fields.slug} />
+        ))}
       </div>
     </Layout>
   )

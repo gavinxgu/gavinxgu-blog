@@ -32,7 +32,9 @@ class IndexPage extends React.Component<IndexPageProps, {}> {
           title="所有博文"
           keywords={['blog', 'gatsby', 'javascript', 'react']}
         />
-        {posts.map(post => PostItem(post))}
+        {posts.map(post => (
+          <PostItem post={post} key={post.node.fields.slug} />
+        ))}
       </Layout>
     )
   }
