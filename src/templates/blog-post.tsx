@@ -35,7 +35,7 @@ class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
     return (
       <Layout>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <div className={style.blogPost}>
+        <div className={`${style.blogPost} shadow`}>
           <h1>{post.frontmatter.title}</h1>
           <p
             style={{

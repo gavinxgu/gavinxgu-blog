@@ -25,7 +25,7 @@ export default (post: PostNode) => {
   const { node } = post
   const title = node.frontmatter.title || node.fields.slug
   return (
-    <div className={style.postItem} key={node.fields.slug}>
+    <div className={`${style.postItem} shadow`} key={node.fields.slug}>
       <div className={style.postItemOverlay} />
       <h1
         style={{

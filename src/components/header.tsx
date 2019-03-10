@@ -7,7 +7,7 @@ interface HeaderProps {
 }
 
 const Header: React.FunctionComponent<HeaderProps> = ({ siteTitle }) => (
-  <nav className="nav">
+  <nav className="nav shadow">
     <div className="left-items">
       <h1 className="logo">
         <Link to="/">{siteTitle}</Link>

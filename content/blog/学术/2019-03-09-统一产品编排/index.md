@@ -6,11 +6,22 @@ cover:
 published: true
 ---
 
-Wow! I love blogging so much already.
+# 依赖到底应该怎么算
 
-Did you know that "despite its name, salted duck eggs can also be made from
-chicken eggs, though the taste and texture will be somewhat different, and the
-egg yolk will be less rich."?
-([Wikipedia Link](http://en.wikipedia.org/wiki/Salted_duck_egg))
+有几个例子，我们来逐一分析每个例子的依赖分解
 
-Yeah, I didn't either.
+- 星巴克的咖啡
+- 一个古驰的包包
+- 打印机的打印服务
+
+## 星巴克的咖啡
+
+- 咖啡
+  - 咖啡豆
+    - 粗咖啡豆
+      - 咖啡树
+      - 采咖啡
+    - 咖啡豆加工
+  - 磨咖啡豆服务
+    - 咖啡机
+    - 操作咖啡机
