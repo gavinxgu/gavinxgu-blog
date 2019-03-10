@@ -4,7 +4,7 @@ module.exports = {
     description: `gavinxgu's personal blog`,
     author: '@gavinxgu',
     latestUpate: new Date(),
-    host: 'gavingu.cn'
+    host: 'blog.gavingu.cn'
   },
   plugins: [
     {
