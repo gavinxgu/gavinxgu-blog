@@ -73,7 +73,12 @@ if (program.blog) {
         fs
           .readFileSync(resolve(__dirname, '../lib/blogTemplate.mustache'))
           .toString(),
-        { title: name, date: now, tags: JSON.stringify(splits) }
+        {
+          title: name,
+          date: now,
+          tags: JSON.stringify(splits),
+          id: new Date(now).getTime(),
+        }
       )
     )
   })

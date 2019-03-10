@@ -1,3 +1,4 @@
+import Disqus from 'disqus-react'
 import { graphql, Link } from 'gatsby'
 import moment from 'moment'
 import * as React from 'react'
@@ -17,6 +18,7 @@ interface BlogPostTemplateProps {
       excerpt: string
       html: string
       frontmatter: {
+        id: string
         title: string
         date: string
       }
@@ -33,11 +35,25 @@ class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
     const post = this.props.data.markdownRemark
     const { previous, next } = this.props.pageContext
 
+    const disqusShortname = 'blog-wxnbf0awco'
+
+    const disqusConfig = {
+      identifier: post.frontmatter.id,
+      title: post.frontmatter.title,
+      url: location.href,
+    }
+
     return (
       <Layout>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <div className={`${style.blogPost} shadow`}>
           <h1>{post.frontmatter.title}</h1>
+          {/* <Disqus.CommentCount
+            shortname={disqusShortname}
+            config={disqusConfig}
+          >
+            Comments
+          </Disqus.CommentCount> */}
           <p
             style={{
               display: 'block',
@@ -80,6 +96,10 @@ class BlogPostTemplate extends React.Component<BlogPostTemplateProps, {}> {
               )}
             </li>
           </ul>
+          <Disqus.DiscussionEmbed
+            shortname={disqusShortname}
+            config={disqusConfig}
+          />
         </div>
       </Layout>
     )
@@ -101,6 +121,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       frontmatter {
+        id
         title
         date
       }
