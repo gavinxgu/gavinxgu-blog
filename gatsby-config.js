@@ -1,6 +1,8 @@
+const title = '猫仔饲养员'
+
 module.exports = {
   siteMetadata: {
-    title: '苏染',
+    title,
     description: `gavinxgu's personal blog`,
     author: '@gavinxgu',
     latestUpate: new Date(),
@@ -57,7 +59,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: '苏染博客',
+        name: title,
         short_name: 'gblog',
         start_url: '/',
         background_color: '#26FFC8',

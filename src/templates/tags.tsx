@@ -16,7 +16,7 @@ interface TagsTemplateProps {
   }
 }
 // Components
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
 const Tags: React.FunctionComponent<TagsTemplateProps> = ({
   pageContext,

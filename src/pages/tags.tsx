@@ -32,7 +32,7 @@ const TagsPage: React.FunctionComponent<TagsPageProps> = ({
 }) => (
   <Layout>
     <SEO title="所有标签" />
-    <div>
+    <div style={{ backgroundColor: 'rgba(256, 256, 256, 0.9)' }}>
       <h1>Tags</h1>
       <ul>
         {group.map(tag => (
