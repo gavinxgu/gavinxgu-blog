@@ -29,7 +29,9 @@ const Header: React.FunctionComponent<HeaderProps> = ({
       </Link> */}
     </div>
     <div className="right-items">
-      <div>{moment(latestUpate).format('YYYY.MM.DD')}</div>
+      <div className="updated-time">
+        {moment(latestUpate).format('YYYY.MM.DD')}
+      </div>
     </div>
   </nav>
 )

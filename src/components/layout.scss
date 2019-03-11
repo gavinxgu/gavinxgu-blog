@@ -14,8 +14,11 @@ a {
 }
 
 .main {
-  margin: 4.3rem auto;
-  height: calc(100vh - 4.3rem);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4.3rem;
+  bottom: 0;
   overflow: auto;
   .posts {
     width: 700px;
