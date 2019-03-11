@@ -5,10 +5,14 @@
   top: 4.3rem;
   bottom: 0;
   overflow: auto;
-  background-image: url('../images/mao.jpg');
+  background-image: url('../images/mao2.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
+
+  @media screen and (max-width: 1000px) {
+    background-image: url('../images/mao.jpg');
+  }
 
   .container {
     width: 1000px;

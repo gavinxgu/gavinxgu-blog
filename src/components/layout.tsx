@@ -41,7 +41,9 @@ const Layout: React.FunctionComponent = ({ children }) => (
                 />
                 <div className={style.profileContent}>
                   <div>
-                    <span>{data.site.siteMetadata.title}</span>
+                    <div>{data.site.siteMetadata.title}</div>
+                    <div>五道口吴亦凡</div>
+                    <div>北三环迪丽热巴</div>
                   </div>
                 </div>
               </div>

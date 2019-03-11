@@ -60,10 +60,10 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: title,
-        short_name: 'gblog',
+        short_name: title,
         start_url: '/',
-        background_color: '#26FFC8',
-        theme_color: '#26FFC8',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
         display: 'standalone',
         icon: 'src/images/icon/icon.png', // This path is relative to the root of the site.
       },
