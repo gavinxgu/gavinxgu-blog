@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: '苏染的博客',
+    title: '苏染',
     description: `gavinxgu's personal blog`,
     author: '@gavinxgu',
     latestUpate: new Date(),
-    host: 'blog.gavingu.cn'
+    host: 'blog.gavingu.cn',
   },
   plugins: [
     {
@@ -57,13 +57,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: '苏染博客',
+        short_name: 'gblog',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        background_color: '#26FFC8',
+        theme_color: '#26FFC8',
+        display: 'standalone',
+        icon: 'src/images/icon/icon.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline',

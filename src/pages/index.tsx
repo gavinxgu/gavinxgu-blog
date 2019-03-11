@@ -1,7 +1,5 @@
-import { graphql, Link } from 'gatsby'
-import Img, { FluidObject } from 'gatsby-image'
+import { graphql } from 'gatsby'
 import * as React from 'react'
-import Image from '../components/image'
 import Layout from '../components/layout'
 import PostItem, { PostNode } from '../components/postItem'
 import SEO from '../components/seo'

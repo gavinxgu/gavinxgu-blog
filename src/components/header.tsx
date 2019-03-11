@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import moment from 'moment'
 import * as React from 'react'
+import Image from '../components/image'
 import './header.scss'
 
 interface HeaderProps {
@@ -14,9 +15,12 @@ const Header: React.FunctionComponent<HeaderProps> = ({
 }) => (
   <nav className="nav shadow">
     <div className="left-items">
-      <h1 className="logo">
-        <Link to="/">{siteTitle}</Link>
-      </h1>
+      <div className="logo">
+        <Image className="logo-icon" />
+        <Link className="logo-text" to="/">
+          {siteTitle}
+        </Link>
+      </div>
       <Link className="item" to="/tags">
         所有标签
       </Link>

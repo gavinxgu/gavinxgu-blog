@@ -27,7 +27,7 @@ const SEO: React.FunctionComponent<SEOProps> = ({
             lang,
           }}
           title={title}
-          titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+          titleTemplate={`%s | ${data.site.siteMetadata.title}的博客`}
           meta={[
             {
               content: metaDescription,
