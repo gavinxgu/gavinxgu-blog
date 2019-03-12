@@ -79,7 +79,13 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Album pages
-  const albums = ['猫猫集群图', '背景图']
+  const albums = [
+    '猫猫集群图',
+    '背景图',
+    '扣猫',
+    '北三环迪丽热巴',
+    '高猫和顾猫的日常',
+  ]
   // 获取所有的图片
   const urlsList = await Promise.all(albums.map(album => getImages(album)))
   // 每个相册建一页

@@ -8,7 +8,7 @@ cover:
 published: true
 ---
 
-![](2471552230324_.pic.jpg)
+<video controls="controls" webkit-playsinline="true" playsinline="playsinline" src="http://gslb.miaopai.com/stream/voiZA54W0sIkGRk4gSEh4FFQF6UhAyPvYgVnrQ__.mp4?vend=miaopai&amp;ssig=7768a28a37580de08e426b0d4e1922c5&amp;time_stamp=1552410605136&amp;mpflag=32" preload="preload" style="width: 100%;"></video>
 
 ## 中国是我的根 让我有家的归属感
 
