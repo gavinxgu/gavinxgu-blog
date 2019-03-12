@@ -7,6 +7,7 @@ module.exports = {
     author: '@gavinxgu',
     latestUpate: new Date(),
     host: 'blog.gavingu.cn',
+    siteUrl: 'https://blog.gavingu.cn',
   },
   plugins: [
     `gatsby-plugin-sitemap`,
