@@ -20,7 +20,7 @@ const Albums: React.FunctionComponent<AlbumsTemplateProps> = ({
       <SEO title={album} description={album} />
       <div className={style.container}>
         {urls.map(url => (
-          <img className={style.image} src={`${url}/w_1000`} alt="" key={url} />
+          <img className={style.image} src={`http:${url}/w_1000`} alt="" key={url} />
         ))}
       </div>
     </Layout>
