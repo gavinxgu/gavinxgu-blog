@@ -1,0 +1,19 @@
+.container {
+  margin: 1rem 0 0 0;
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem;
+
+  .image {
+    height: 10rem;
+    margin: 0 1rem 1rem 0;
+
+    @media screen and (max-width: 1000px) {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

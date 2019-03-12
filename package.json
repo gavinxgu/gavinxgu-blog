@@ -17,6 +17,7 @@
     "typescript"
   ],
   "dependencies": {
+    "cos-nodejs-sdk-v5": "^2.5.6",
     "disqus-react": "^1.0.5",
     "gatsby": "^2.1.27",
     "gatsby-image": "^2.0.31",
@@ -25,6 +26,7 @@
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sass": "^2.0.10",
     "gatsby-plugin-sharp": "^2.0.14",
+    "gatsby-plugin-sitemap": "^2.0.8",
     "gatsby-plugin-typescript": "^2.0.3",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-external-links": "0.0.4",
@@ -50,6 +52,8 @@
     "@types/react": "^16.7.17",
     "@types/react-dom": "^16.0.11",
     "@types/react-helmet": "^5.0.7",
+    "clean-deep": "^3.0.2",
+    "dotenv": "^6.2.0",
     "lerna": "^3.13.1",
     "prettier": "^1.15.2",
     "tslint": "^5.11.0",

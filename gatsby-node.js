@@ -1,84 +1,97 @@
 const path = require('path')
 const _ = require('lodash')
 const { createFilePath } = require('gatsby-source-filesystem')
+const getImages = require('./lib/getImages')
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+  const blogPost = path.resolve('./src/templates/blog-post.tsx')
+  const tagTemplate = path.resolve('./src/templates/tags.tsx')
+  const albumTemplate = path.resolve('./src/templates/album.tsx')
 
-  return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.tsx')
-    const tagTemplate = path.resolve('./src/templates/tags.tsx')
-    resolve(
-      graphql(
-        `
-          {
-            allMarkdownRemark(
-              sort: { fields: [frontmatter___date], order: DESC }
-              limit: 1000
-              filter: { frontmatter: { published: { ne: false } } }
-            ) {
-              edges {
-                node {
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                    tags
-                  }
-                }
+  const result = await graphql(
+    `
+      {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+          filter: { frontmatter: { published: { ne: false } } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                tags
               }
             }
           }
-        `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
         }
+      }
+    `
+  )
 
-        // Create blog posts pages.
-        const posts = result.data.allMarkdownRemark.edges
+  if (result.errors) {
+    console.log(result.errors)
+    reject(result.errors)
+  }
 
-        posts.forEach((post, index) => {
-          const previous =
-            index === posts.length - 1 ? null : posts[index + 1].node
-          const next = index === 0 ? null : posts[index - 1].node
+  // Create blog posts pages.
+  const posts = result.data.allMarkdownRemark.edges
 
-          createPage({
-            path: post.node.fields.slug,
-            component: blogPost,
-            context: {
-              slug: post.node.fields.slug,
-              // previous,
-              // next,
-            },
-          })
-        })
+  posts.forEach((post, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const next = index === 0 ? null : posts[index - 1].node
 
-        // Tag pages:
-        let tags = []
-        // Iterate through each post, putting all found tags into `tags`
-        _.each(posts, edge => {
-          if (_.get(edge, 'node.frontmatter.tags')) {
-            tags = tags.concat(edge.node.frontmatter.tags)
-          }
-        })
-        // Eliminate duplicate tags
-        tags = _.uniq(tags)
+    createPage({
+      path: post.node.fields.slug,
+      component: blogPost,
+      context: {
+        slug: post.node.fields.slug,
+        // previous,
+        // next,
+      },
+    })
+  })
 
-        // Make tag pages
-        tags.forEach(tag => {
-          createPage({
-            path: `/tags/${_.kebabCase(tag)}/`,
-            component: tagTemplate,
-            context: {
-              tag,
-            },
-          })
-        })
-      })
-    )
+  // Tag pages:
+  let tags = []
+  // Iterate through each post, putting all found tags into `tags`
+  _.each(posts, edge => {
+    if (_.get(edge, 'node.frontmatter.tags')) {
+      tags = tags.concat(edge.node.frontmatter.tags)
+    }
+  })
+  // Eliminate duplicate tags
+  tags = _.uniq(tags)
+
+  // Make tag pages
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag)}/`,
+      component: tagTemplate,
+      context: {
+        tag,
+      },
+    })
+  })
+
+  // Album pages
+  const albums = ['猫猫集群图', '背景图']
+  // 获取所有的图片
+  const urlsList = await Promise.all(albums.map(album => getImages(album)))
+  // 每个相册建一页
+  urlsList.forEach((urls, i) => {
+    createPage({
+      path: `/albums/${albums[i]}`,
+      component: albumTemplate,
+      context: {
+        album: albums[i],
+        urls,
+      },
+    })
   })
 }
 

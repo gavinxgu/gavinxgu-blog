@@ -1,4 +1,4 @@
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, Link, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import * as React from 'react'
 import style from './layout.module.scss'
@@ -20,6 +20,13 @@ const Layout: React.FunctionComponent = ({ children }) => (
           childImageSharp {
             fluid(maxWidth: 300) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        allSitePage(filter: { path: { regex: "/^/albums//" } }) {
+          edges {
+            node {
+              path
             }
           }
         }
@@ -46,6 +53,16 @@ const Layout: React.FunctionComponent = ({ children }) => (
                     <div>北三环迪丽热巴</div>
                   </div>
                 </div>
+              </div>
+              <div className={style.albumContainer}>
+                <h3>Albums</h3>
+                {data.allSitePage.edges.map((edge: any) => (
+                  <div key={edge.node.path}>
+                    <Link to={edge.node.path}>
+                      {edge.node.path.match(/^\/albums\/(.*)/)[1]}
+                    </Link>
+                  </div>
+                ))}
               </div>
             </div>
             <div className={style.posts}>{children}</div>

@@ -22,7 +22,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
         </Link>
       </div>
       <Link className="item" to="/tags">
-        所有标签
+        标签
       </Link>
       {/* <Link className="item" to="/tags/电影">
         电影

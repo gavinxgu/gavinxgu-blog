@@ -1,3 +1,14 @@
+.left-white-block {
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  margin: 1rem 0;
+
+  @media screen and (max-width: 1000px) {
+    border-radius: 0px;
+  }
+}
+
 .main {
   position: absolute;
   left: 0;
@@ -30,13 +41,9 @@
 
     .profile {
       width: 296px;
-      margin: 1rem 0;
-      font-size: 1rem;
-      padding: 1.5rem;
-      border-radius: 2px;
-      background-color: #ffffff;
 
       .profile-container {
+        @extend .left-white-block;
         display: flex;
 
         .profile-image {
@@ -46,6 +53,19 @@
 
         .profile-content {
           margin-left: 1rem;
+          font-weight: 300;
+        }
+      }
+
+      .album-container {
+        @extend .left-white-block;
+        h3 {
+          margin: 0 0 1rem 0;
+          color: #b2bac2;
+        }
+
+        a {
+          font-weight: 300;
         }
       }
 
