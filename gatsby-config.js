@@ -43,6 +43,17 @@ module.exports = {
             },
           },
           `gatsby-remark-responsive-iframe`,
+          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
+            },
+          },
         ],
       },
     },
