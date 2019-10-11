@@ -3991,9 +3991,9 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
 cos-nodejs-sdk-v5@^2.5.6:
-  version "2.5.6"
-  resolved "https://registry.yarnpkg.com/cos-nodejs-sdk-v5/-/cos-nodejs-sdk-v5-2.5.6.tgz#521811a82576b9c86875c1bf5a6049033c9bbdc3"
-  integrity sha512-GRW25IcJ1aNaDNcnV1o8RwAmPQrjjw6JspZ6OJ68mhQvYyyB+J/lU7MS+cH8//Y5UxprtmeOHrFUSCWsWp5pSw==
+  version "2.5.12"
+  resolved "https://registry.yarnpkg.com/cos-nodejs-sdk-v5/-/cos-nodejs-sdk-v5-2.5.12.tgz#7098b20aa22a622c4a786107a8c9225cd02c1945"
+  integrity sha512-OiWbK4/ORvPhOCcK5KtVeqh9YCk52KXnJxNCcK8F7Lf+QqV1Rpc07rbAyCgB6AcRUnJ5hto0p2SwlIqV4HtXGg==
   dependencies:
     configstore "^3.1.2"
     request "^2.81.0"
