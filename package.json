@@ -52,7 +52,7 @@
     "@types/node": "^12.7.12",
     "@types/react": "^16.7.17",
     "@types/react-dom": "^16.0.11",
-    "@types/react-helmet": "^5.0.7",
+    "@types/react-helmet": "^6.1.0",
     "clean-deep": "^3.0.2",
     "dotenv": "^8.1.0",
     "lerna": "^3.13.1",
